@@ -1,0 +1,1728 @@
+PHP
+Object Oriented
+Programming
+(OOP)
+
+Emrullah TANIMA
+
+Hakkýmda
+
+17 Mayýs 1994 Ordu/Kumru doðumluyum. Ýlk ve orta eðitimimi doðup büyüdüðü m
+ilçede bitirdim. Lise eðitimimi Ýstanbul Hadýmköy Toki Lisesinde bitirdim. Ordu
+Üniversitesi Bilgisayar Programcýlýðý mezunuyum.
+
+Çok küçük yaþlardan beri bilgisayar, internet ve müzikle uðraþýyorum. Aðýrlýk olarak
+Web Yazýlým, Nesne Tabanlý Programlama ve VTYS (Veritabaný Yönetim
+Sistemleri) alanlarýnda proje üretiyor veya mevcut projeleri geliþtiriyor ya da
+teknik destek sunuyorum. Web yazýlým olarak 7 yýldýr PHP kullanýcýsý, Nesne Tabanlý
+olarak ise 4 Yýldýr Java kullanýcýsýyým. Üniversite yýllarýnda birkaç geliþtirici arkadaþla
+ortak bir yazýlým þirketi kurup daha sonra bazý sebeplerden dolayý kepengi kapattýk.
+Þu an freelance r olarak çalýþýyorum ve böyle daha mutluyum.
+
+Müzik dalýndan bahsedecek olursak genelde yaz aylarýnda kafe, türkü bar, restorant
+ve düðünlerde þarký söylüyorum. Gitar, Baðlama ve Org enstrümanlarýyla aram çok
+iyidir. Elimden geldiði kadar ve iþlerden fýrsat buldukça boþ zamanlarýmda müzikal
+anlamda bir þeyler yapmaya çalýþýyorum.
+
+Üzerimde emeði geçen herkese baþta üniversite hocalarým ve özel kurs hocalarým
+olmak üzere herkese ayrý ayrý teþekkür ediyorum.
+
+Tüm sorularýnýz ya da herhangi bir þey için info@emrullahtanima.com,
+emrtnm@gmail.com adresinden yada sosyal medya hesaplarýmdan bana
+ulaþabilirsiniz.
+
+Önsöz
+
+Kiþisel bloðum üzerinde yayýnladýðým yazýlarýn site üzerinde çok daðýnýk durmasý
+araya baþka konularý girmesi gibi sebeplerden dolayý bu yazýlarý bir kitap haline
+getirmek ve bu konuda ki kaynak sýkýntýsýna bir nebze de olsa katkýda bulunmak
+istedim.
+
+Blog üzerinde ki içeriklerden farklý olarak ufak tefek deðiþiklikler ve eklemeler yaptým.
+Konuyu daha iyi özümseyeceðinizi düþündüðüm birkaç tane de örnek ekledim.
+
+Kitap içeriðinde ki yazým ve imla hatalarý, kod hatalarý ya da yanlýþ olduðunu
+düþündüðünüz her hangi bir þeyi bana iletirseniz çok memnun olurum. Böylelikle
+amacýna daha uygun bir kitap olmuþ olur ve yanlýþ bilgi vermenin de önüne geçmiþ
+oluruz.
+
+Faydalý olmasý dileðiyle…
+
+Bu kitap kimler için ?
+
+Bu kitap PHP Object Oriented Programming Türkçe manasýyla nesne tabanlý
+programlama hakkýnda bilgiler içerir. Kitapta anlatýlan konularý anlayabilmek için
+genel programlama bilgisine ve yeteðine sahip olmak, PHP temel yazým
+kurallarý(syntax)ný bilmek yeterlidir.
+
+Hiçbir zaman PHP diline ait konularýn; temel php dersleri, orta seviye php dersleri, ileri
+seviye php dersleri gibi saçma sapan kategorilere ayrýlmasýndan yana deðilimdir. Zira
+bir programlama dilinin öðrenilmesi gerekiyor ise bütünüyle öðrenilmesi taraftarýyým.
+
+Ýçindekiler
+
+1. Giriþ ……………………………………………………………………………………………………………………….. 1
+1.1. Giriþ ……………………………………………………………………………………………………………….... 1
+1.2. Sýnýf nedir nasýl oluþturulur? …………………………………………………………………………....2
+1.3. Yapýcý ve yýkýcý metot nedir? ……………………………………………………………………………4
+2. Gizlilik ……………………………………………………………………………………………………………………. 6
+2.1. Public …………………………………………………………………………………………………………….... 6
+2.2. Private …………………………………………………………………………………………………………….. 8
+2.3. Protected ………………………………………………………………………………………………………. 10
+2.4. Static ……………………………………………………………………………………………………………...12
+2.5. Final ……………………………………………………………………………………………………………….14
+3. Sihirbaz Metotlar …………………………………………………………………………………………………. 17
+3.1. __construct() ………………………………………………………………………………………………….. 17
+3.2. __destruct() ……………………………………………………………………………………………………. 18
+3.3. __toString() …………………………………………………………………………………………………….19
+3.4. __call() …………………………………………………………………………………………………………....20
+3.5. Örnek Sýnýf …………………………………………………………………………………………………….20
+4. Autoload …………………………………………………………………………………………………………......26
+5. Overloading …………………………………………………………………………………………………………28
+6. Soyut Sýnýflar ………………………………………………………………………………………………………..31
+7. Nesne Arayüzleri ……………………………………………………………………………………………….....34
+7.1. Giriþ …………………………………………………………………………………………………………….....34
+7.2. Nesne arayüzleri neden kullanýlýr? ………………………………………………………………...35
+8. Nesne Klonlama …………………………………………………………………………………………………..37
+9. Sonsöz …………………………………………………………………………………………………………………38
+
+@author Emrullah Tanýma Sayfa 1
+
+1.1 Giriþ
+
+OOP Object Oriented Programming kelimelerinin baþ harflerinden oluþan bir
+programlama teknolojisidir. Türkçe manasýyla söyleyecek olursak Nesne Tabanlý
+Programlamadýr. OOP teknolojisi kullanýlan programlama dillerine en güzel
+örnek Visual Basic ve JAVA’dýr. OOP teknolojisi kullanýlan programlama dilleri tabi
+ki bu iki güzel örneðimiz ile sýnýrlý deðil. Örneðin: Objective-C, C#, C++, Python
+ve tabii ki PHP.
+
+Eðer yukarýdaki dillerden herhangi birini biliyorsanýz PHP ile nesne tabanlý
+programlama mimarisine aþina olmanýz çok kolay olacaktýr. PHP nesne tabanlý
+programlama mimarisine tam olarak PHP 5 ile geçmiþtir. PHP4 de obje (nesne)
+yapýsý vardý ancak ihtiyaçlarý pek karþýlamýyor ve modern yapýya pek ayak
+uyduramýyordu. Ancak PHP5 ile gerçek manada bir OOP mimarisi PHP diline
+eklendi.
+
+PHP OOP mimarisini kullanarak daha profesyonel, daha esnek ve daha
+geliþtirilebilir projeler oluþturabiliriz. Günümüzde artýk tüm web teknolojil erinde
+OOP mimarisi kullanýlýyor. Profesyonel olarak oluþturulan projeler bile OOP
+mimarisine dönüþtürülüyor. Sizin de bugünden itibaren OOP mimarisine
+geçmemeniz için hiç bir sebep yok. OOP mimarisinin sizi cezbedeceðini
+düþündüðüm bir kaç örnek vereyim.
+
+Örneðin basit bir blog scripti yazdýnýz. Burada blog yazýlarýnýzý yayýnlýyorsunuz.
+Scriptinize yorum özelliði gibi bir kaç tane de özellik eklediniz. Projeniz bitti ve
+arþive attýnýz. Daha sonra farklý bir proje için yine yazý ekleyip çýkarabileceðiniz dah a
+ufak bir blog modü lüne ihtiyacýnýz oldu. Bu durumda o proje için yeniden yazmak
+yerine daha önce yazmýþ olduðunuz yazýlar modü lü kullanabilirsiniz. Daha açýk
+örneklemek gerekirse bugün yazmýþ olduðunuz bir modülü, eklentiyi, sýnýfý ömür
+boyu çok daha kol ay ve basit bir þekilde projenize dahil ede bilir siniz. Bu olay kod
+yazmadan proje çýkarmaya kadar gider.
+
+PHP projelerinizde OOP mimarisini kullanmanýzýn bir diðer faydasý da her þey yerli
+yerindedir. Bir de mvc mimarisi ni kullandýðýnýzda 10 yýl sonra bile projeyi
+açtýðýnýzda neyin nerede olduðunu çok rahatlýkla bulabilir çok daha profesyonel
+projeler oluþturabilirsiniz.
+
+@author Emrullah Tanýma Sayfa 2
+
+PHP ile OOP mimarisini kullanarak proje geliþtirmek için bazý terimleri bilmemiz
+gerekiyor. Diðer dillerde olduðu gibi PHP dilinde de OOP mimarisi sýnýf,
+fonksiyonlar(metot) ve parametreler üzerine kuruludur.
+
+1.2. Sýnýf nedir nasýl oluþturulur?
+
+Sýnýf (class) birçok fonksiyonu bir düzen içerisinde barýndýran yapýlardýr. OOP
+mimarisinin temelidir diyebiliriz. Blog örneðimizden yola çýkarak bir yazý sýnýfýnýn
+içinde yazý ekleme, yazý silme, yazý düzenleme gibi fonksiyonlar bulunur. Sýnýflar
+hakkýnda detaylý bilgiye http://php.net/manual/tr/language.oop5.php buradan
+ulaþabilirsiniz.
+
+Sýnýf tanýmlamak için class komutunu kullanýrýz. Yukarýdaki örneðimizden devam
+ederek yazýlar adýnda bir sýnýf oluþturalým.
+
+<?php
+
+class yazilar {
+
+// php oop dersleri
+
+}
+
+?>
+
+Sýnýflar týpký fonksiyonlar gibi çaðrýlmayý beklerler. Bir sýnýfý çaðýrmak
+için New komutu kullanýlýr. Bu komutumuzun baþ harfinin küçük yada büyük
+olmasý herhangi bir farklýlýk yaratmaz. Ýki þekilde de kullanabiliriz.
+Yukarýdaki yazý lar sýnýfýmýzý çaðýrmak için:
+
+<?php
+
+new yazilar();
+
+?>
+
+Yazmamýz yeterlidir. Þu an yazýlar sýnýfýmýzý çaðýrdýk ancak hiç bir deðiþiklik olmadý.
+Çünkü biz sýnýfýmýza ait bir metot tanýmlamadýk ve o metodu çaðýrmadýk.
+
+@author Emrullah Tanýma Sayfa 3
+
+Sýnýfýmýza merhaba adýnda bir fonksiyon ekleyelim ve bu fonksiyon ekrana
+“Merhaba” yazsýn. Bir sýnýfa fonksiyon eklemek için public function komutunu
+kullanýrýz. (Þimdilik )
+
+<?php
+
+class yazilar {
+
+public function merhaba () {
+
+echo "Merhaba";
+
+}
+
+}
+
+?>
+
+Þimdi yazýlar sýnýfýný bir deðiþkene atayýp çaðýralým.
+
+<?php
+
+$oop = new yazilar();
+
+?>
+
+Yazýlar sýnýfýmýz þu an çalýþýyor. Bizim ekrana “Merhaba” yazmasýný istediðimiz
+fonksiyonu çaðýrmadýðýmýz için sýnýfý çaðýrdýðýmýz halde herhangi bir deðiþiklik
+olmadý. Bir sýnýf altýndaki fonksiyonu çaðýrmak için -> iþaretini kullanýlýrýz. Yazýlar
+sýnýfýmýzdaki merhaba fonksiyonunu çaðýrmak için:
+
+<?php
+
+$oop = new yazilar();
+
+$oop->merhaba ();
+
+?>
+
+Þeklinde kullanmamýz gerekir.
+
+Özetle ne yaptýðýmýza bir bakalým. class komutunu kullanarak yazilar adýnda bir
+sýnýf oluþturduk. Daha sonra New komutuyla sýnýfýmýzý çaðýrdýk. Ardýndan public
+function komutu ile sýnýfýmýza merhaba adýnda bir fonksiyon tanýmladýk.
+
+@author Emrullah Tanýma Sayfa 4
+
+Son olarak da -> iþaretiyle çaðýrdýðýmýz sýnýfýmýzýn merhaba fonksiyonu çalýþtýrdýk.
+Kodlarla anlatmak gerekirse :
+
+<?php
+
+class yazilar {
+
+public function merhaba () {
+
+echo "Merhaba";
+
+}
+
+}
+
+$oop = new yazilar();
+
+$oop->merhaba ();
+
+?>
+
+1.3. Yapýcý ve yýkýcý metot nedir?
+
+Sýnýflarýn ana metotlarý bir diðer adýyla yapýcý ve yýkýcý metotlarý bulunur. Bu ana
+metotlar __construct ve __destruct metotlarýdýr. Bu arkadaþlardan __construct yapýcý,
+__destruct ise yýkýcý metot olarak bilinir. Yapýcý metot sýnýf çaðrýldýðý anda çalýþan
+metott ur. Yani New sinifadi(); diyerek bir sýnýfý çaðýrdýðýnýzda hiç bir metot
+belirtmeseniz bile çalýþacak olan metottur.
+
+Yýkýcý metot ise en son iþlem bittiðinde çalýþacak olan metottur. Yapýcý ve yýkýcý
+metot tanýmlarken de public function komutunu kullanýrýz. Kýsa bir örnekle
+konuya açýklýk getirelim.
+
+<?php
+
+class anametot {
+
+public function __construct () {
+echo "Sýnýf çalýþtý";
+}
+
+@author Emrullah Tanýma Sayfa 5
+
+public function __destruct () {
+echo "Sýnýf bitti";
+}
+
+}
+
+new anametot ();
+
+?>
+
+Ekran çýktýsý: Sýnýf çalýþtýSýnýf bitti
+
+Burada bir püf noktaya deðinmek istiyorum. Eðer yapýcý metot parametre alýyorsa
+sýnýfý baþlatýrken bu parametreleri girmek zorundayýz. Örnek:
+
+<?php
+
+class anametot {
+
+public function __construct ($arg) {
+echo $arg;
+}
+
+}
+
+new anametot ('parametre deðeri');
+
+?>
+
+Eðer yapýcý metot parametre almýyorsa parantez kullanmadan da sýnýfý çaðýrabiliriz.
+Yukarýda ki örneðimiz de ki yapýcý metodumuz parametre almamýþ olsaydý. New
+anametot; diyerek de sýnýfý baþlatabilirdik.
+
+Yapýcý ve yýkýcý metotlar nerelerde kullanýlýr ?
+
+Sýnýfýn çalýþmasý için gerekli bilgiler varsa bu bilgiler yapýcý metoda gönderilir. Yada
+sýnýf çalýþmadan önce bazý iþlemler yapýlmasý gerekiyorsa kullanýlýr. Sýnýf bitince
+silinmesi gereken deðerler varsa bunlarda yýkýcý metotta halledilir. Mesela bir veri
+tabaný sýnýfýný baþlatmak için sunucu adresi, kullanýcý adresi gibi bilgiler yapýcý
+metoda gönderilir.
+
+Yapýcý ve yýkýcý metotlarý tanýmlamak zorunlu deðildir. Ancak ilerleyen konularda ve
+OOP mimarisini kavradýðýnýzda çok fazla faydasýný göreceksiniz.
+
+@author Emrullah Tanýma Sayfa 6
+
+2. Gizlilik
+
+OOP mimarisinde gizlilik: sýnýf içerisinde kullanýlan sabit deðiþkenlerin ve metotlarýn
+nerelerden eriþilebileceðinin belirlenmesidir. Bir diðer deyiþle sýnýf içerisinde
+kullanýlan tüm argümanlarýn güvenliðinin belirlenmesidir.
+
+Bir proje üzerinde birden çok yazýlýmcý çalýþtýðýnda, yazýlýmcýya eriþebileceði ve
+eriþemeyeceði sabit deðiþkenler ve metotlar tanýmlayarak yanlýþ kullanýmlarýn
+önüne geçmiþ oluruz.
+
+PHP’nin bize sunmuþ olduðu 5 adet gizlilik komutu bulunmaktadýr. Bu
+komutlarýmýz pub lic, private, protected, static, ve final komutlarýdýr.
+
+2.1. Public
+
+Public komutuyla oluþturulan tüm sabit deðiþken ve metotlara her ortamdan
+eriþilebilir. Örnek:
+
+<?php
+
+class OopDersleri {
+
+public function __construct () {
+
+}
+
+public function merhaba () {
+
+echo "Merhaba";
+
+}
+
+}
+
+$oop = New OopDersleri();
+$oop->merhaba ();
+
+?>
+
+Bir önceki konumuza hatýrlatma olmasý amacýyla ne yaptýðýmýza bir bakalým.
+
+@author Emrullah Tanýma Sayfa 7
+
+Class komutuyla yeni bir sýnýf oluþturduk. public function komutuyla eriþilebilir bir
+metot tanýmladýk. $oop deðiþkenine New komutuyla tanýmladýðýmýz sýnýfý atadýk.
+Ve son olarak da $oop->merhaba() koduyla da sýnýfýmýz içinde ki merhaba adlý
+metod u çalýþtýrdýk.
+
+Bu arada sýnýf içerisinden yada sýnýf dýþýndan eriþil ebilme de nedir diye soracak
+olursanýz hemen ona da bir açýklýk getirelim.
+
+Yukarýdaki örneðimiz sýnýf dýþýndan eriþime örnektir. Þöyle ki biz önce sýnýfýmýzý
+yazdýk daha $oop adýnda bir deðiþken oluþturup New komutuyla sýnýfý baþlattýk.
+Daha sonra da $oop->merhaba(); koduyla da sýnýfýn merhaba metoduna eriþtik.
+Eðer ki merhaba metoduna sýnýf içinden eriþmeye çalýþmýþ olsaydýk kodlarýmýz þu
+þekilde olmalýydý.
+
+<?php
+
+class OopDersleri {
+
+public function __construct () {
+
+$this->merhaba ();
+
+}
+
+public function merhaba () {
+
+echo "Merhaba";
+
+}
+
+}
+
+$oop = New OopDersleri();
+
+?>
+
+Burada dikkatinizi çektiði üzere $this adýnda bir komut kullandýk. Sýnýf içerisindeki
+public olarak tanýmlanan bir metot veya sabit deðiþkene $this komutuyla
+eriþebiliriz. Þimdide public bir argüman tanýmlayalým.
+
+Kodlarýmýz:
+
+@author Emrullah Tanýma Sayfa 8
+
+<?php
+
+class OopDersleri {
+
+public $merhaba = "Merhaba";
+
+public function __construct () {
+
+echo $this->merhaba;
+
+}
+
+}
+
+$oop = New OopDersleri();
+
+?>
+
+Tekrar ne yaptýðýmýza bir bakalým.
+
+OopDersleri adýnda bir sýnýf oluþturduk. public $merhaba = “Merhaba”; ile public bir
+argüman oluþturduk ve __construct ana metodumuzda oluþturduðumuz argümaný
+ekrana bastýk. Burada dikkat etmemiz gereken olay $this-> komutuyla sýnýf
+içerisindeki bir argümana eriþmek istersek argüman adýndan sonra ()
+kullanmýyoruz. Ancak bir metoda eriþmek istersek () parantez kullanmalýyýz.
+
+2.2 Private
+
+Yalnýzca sýnýf içerisinden eriþilebilen metot veya argüman oluþturmak istediðimiz
+zaman private komutunu kullanýrýz. Private olarak tanýmladýðýmýz bir metot veya
+argümana sýnýf dýþýndan yada türetilen bir sýnýf dýþýndan eriþmemiz mümkün
+deðildir. Türetilen sýnýf da nerden çýktý diyecek olursanýz birazdan açýklayacaðým.
+Örneðimizdeki merhaba metodunu private olarak tanýmlayalým.
+
+<?php
+
+class OopDersleri {
+
+public function __construct () {
+
+}
+
+private function merhaba () {
+
+@author Emrullah Tanýma Sayfa 9
+
+echo "Merhaba";
+
+}
+
+}
+
+$oop = New OopDersleri();
+$oop->merhaba ();
+
+?>
+
+Bu kodumuzu çalýþtýrdýðýmýzda fatal error (ölümcül hata) döndürecektir. Çünkü biz
+private olarak tanýmladýðýmýz bir metoda sýnýf dýþýndan ( $oop->merhaba() )
+eriþmeye çalýþtýk.
+
+Private olarak tanýmlanan bir metot veya argümana sýnýf içerisinden eriþmek
+istediðimiz zaman yukarýda yeni öðrenmiþ olduðumuz $this komutuyla
+yada self::metotadý þeklinde eriþebiliriz. Yukarýdaki kodumuzun çalýþan halini
+yazarak private olayýmýzý da halledelim.
+
+<?php
+
+class OopDersleri {
+
+public function __construct () {
+self:: merhaba ();
+}
+
+private function merhaba () {
+
+echo "Merhaba";
+
+}
+
+}
+
+$oop = New OopDersleri();
+
+?>
+
+@author Emrullah Tanýma Sayfa 10
+
+2.3. Protected
+
+Protected komutuyla oluþturulan metot ve argümanlara yalnýzca sýnýf içerisinden ve
+türetilen sýnýf içerisinden eriþilebilir. Protected olarak tanýmlanan bir metot veya
+argümana sýnýf dýþýndan asla eriþilemez. Þimdi az önceki sözümüzü tutup türetilen
+sýnýf nedir onu bir açýklayalým.
+
+Bir sýnýfý baþka bir sýnýftan türetmek için extends komutunu kullanýrýz. Örneðin a
+sýnýfýný b sýnýfýndan türetmek için yazmamýz gereken kod þudur:
+
+<?php
+
+class b {
+
+public function merhaba () {
+
+echo "Merhaba";
+
+}
+
+}
+
+class a extends b {
+
+public function __construct () {
+parent:: merhaba ();
+}
+
+}
+
+$oop = New a ();
+
+?>
+
+Peki, bir sýnýfý bir baþka sýnýftan türetirsek ne olur ?
+
+Eðer bir sýnýfý bir baþka sýnýftan türetirsek türetilen sýnýf içerisinde ki (private
+komutuyla oluþturulanlar hariç) tüm metot ve argümanlarý türettiðimiz sýnýf
+içerisinden de kullanabiliriz. a sýnýfýmýzýn __construct metoduna
+yazdýðýmýz parent:: komutuyla türetilen sýnýf içerisinde ki metodumuzu a sýnýfý
+içerisinde de kullanabiliyoruz. Konuya açýklýk getirmek gerekirse yukarýdaki
+kodumuzu $oop = New a() diyerek a adlý sýnýfýmýzý baþlattýk. Sýnýfýmýz ekrana
+“Merhaba” çýktýsýný verdi. Ancak biz a sýnýfý içerisinde ekrana “Merhaba” yazan bir
+metot tanýmlamadýk.
+
+@author Emrullah Tanýma Sayfa 11
+
+Peki nasýl oldu ?
+
+Aslýnda ekrana “merhaba” çýktýsýný veren metodumuz b sýnýfýmýz içerisinde ki
+merhaba metodu. Biz a sýnýfýmýzý b sýnýfýndan türetmiþtik. a sýnýfýmýzýn __construct
+metoduna da parent::merhaba() yazdýðýmýz için doðal olarak a sýnýfýmýzý
+baþlattýðýmýz an b sýnýfý içerisinde ki merhaba metodu da çalýþýyor. Sýnýf türetme
+olayýna geniþletme de denilmektedir.
+
+Protected komutuyla oluþturulan metot ve argümanlara yalnýzca sýnýf içerisinden ve
+türetilen sýnýf içerisinden eriþilebilir dedik ve bir örnek vererek konuyu netleþtirelim.
+
+<?php
+
+class b {
+
+protected function merhaba () {
+
+echo "Merhaba";
+
+}
+
+}
+
+$oop = New b ();
+$oop->merhaba ();
+
+?>
+
+Yukarýdaki kodumuzu çalýþtýrdýðýmýz da fatal error verecektir. Çünkü protected
+olarak tanýmladýðýmýz bir metoda sýnýf dýþarýsýndan eriþmeye çalýþtýk. Þimdi bu
+kodumuzun çalýþan halini yazalým.
+
+<?php
+
+class b {
+
+protected function merhaba () {
+
+echo "Merhaba";
+
+}
+
+}
+
+class a extends b {
+
+public function __construct () {
+
+@author Emrullah Tanýma Sayfa 12
+
+parent:: merhaba ();
+}
+
+}
+
+$oop = New a ();
+
+?>
+
+Bu þekilde ekrana “Merhaba” çýktýsýný verecektir.
+
+2.4. Static
+
+Static komutuyla oluþturulan metot ve argümanlara sýnýfý baþlatmadan sýnýf
+içerisinden yada sýnýf dýþýndan eriþebiliriz. Static özelliði genellikle en çok kullanýlan
+metotlarýn daha hýzlý çalýþmasý ve bir sýnýfýn sadece bir metodunu, sýnýfý çaðýrmadan
+kullanacaksak static komutunu kullanýrýz. Static komutunun diðerlerinden
+farký public static þeklinde bir söz dizimi olmasýdýr. Örneðin static $degisken veya
+static fonksiyon() þeklinde yazarsak hata ile karþýlaþýrýz.
+
+Static olarak tanýmlanan bir metodu yada argümaný sýnýf içerisinden kullanmak
+istediðimiz zaman ise self::$degisken yada parent::$degisken þeklinde
+kullanabiliriz.
+
+Burada dikkat etmemiz gerek en static olarak tanýmlanmýþ olan deðerlerin
+baþýna $ iþaretini koymamýz gerektiði.
+
+Static olarak tanýmlanan tüm metotlar ve argümanlar RAM’e atýlýr. Çaðrýldýðý zaman
+ise direk RAM’den çaðrýlarak diðer gizlilik komutlarýna göre çok daha hýzlý çalýþýr.
+Böylelikle performans kaybýný önlemiþ oluruz. Tabi ki bu her metodu static olarak
+taným lamam ýzýn doðru olduðu anlamýna gelmez. Basit bir örnek vererek konumuzu
+netleþtirelim.
+
+<?php
+
+class b {
+
+public static $sabit = "Oop Dersleri";
+
+public function yaz() {
+
+echo self::$sabit;
+
+@author Emrullah Tanýma Sayfa 13
+
+}
+
+}
+
+$oop = New b ();
+$oop->yaz();
+
+?>
+
+Ekran çýktýmýz: “Oop Dersleri” olacaktýr. Performanstan bahsetmiþken yukarýda ki
+örneðimizi biraz daha farklýlaþtýralým. Kodlarýmýz:
+
+<?php
+
+class b {
+
+public static $sabit = "Oop Dersleri";
+
+public static function yaz() {
+
+echo self::$sabit;
+
+}
+
+}
+
+b::yaz();
+
+?>
+
+Burada ne yaptýðýmýza bir bakalým. $sabit adýnda bir static deðiþken oluþturduk, yaz
+adýnda bir metot oluþturduk ve bu metodumuz içinden $sabit deðerini ekrana
+yazdýrdýk. Ancak burada New komutu kullanmayýp sýnýfý baþlatmadýðýmýz halde yine
+ekrana “Oop Dersleri” deðerini yazdýrdý.
+
+PHP dilinde bir sýnýfý çaðýrmadan da sýnýf içerisinde static olarak tanýmlanmýþ metot
+ve argümanlara eriþebiliriz. Bunu yapabilmek
+için sinifadi::arguman veya sinifadi::metot() þeklinde kullanmamýz gereki r. Bu
+þekilde bir kullaným bize sýnýf içerisinde 100 tane metot olsa bile sadece bizim
+istediðimiz metodu yükler ve çalýþtýrýr. __construct ve __destruct ana metotlarý dahi
+çalýþmaz. Yani sýnýfý komple yüklemez. Bu þekilde de performans artýþý
+saðlayabiliriz.
+
+@author Emrullah Tanýma Sayfa 14
+
+Ayrýca içinde static bir deðer bulunan bir sýnýfý New diyerek baþlattýðýmýzda RAM’e
+her defasýnda yeni bir obje eklenir. Bu da hafýza da gereksiz bir yer kaplar. Sonuç
+olarak ne kadar New komutuyla tanýmlarsak hafýza da o kadar fazla yer kaplamýþ
+oluruz.
+
+2.5. Final
+
+Final komutu türetilen sýnýflarda en son kullanýlacak sýnýf, metot veya argümanlarda
+koruma amaçlý kullanýlan bir komuttur. Özellikle bileþen (component) yapýmýnda
+birden çok developer’ýn kullanýldýðý durumlarda olmazsa olmaz güvenlik
+mekanizmalarýnýn baþýnda gelir.
+
+Final komutu sýnýf tanýmlamalarýnýn baþýnda kullanýlýr. Þöyle bir örnek verelim.
+
+<?php
+
+final class Bitis {
+
+}
+
+$oop = new Bitis ();
+
+?>
+
+Yukarýdaki gibi final komutuyla tanýmlanan bir sýnýf baþka bir sýnýf tarafýndan
+türetilemez. Ancak bir baþka sýnýftan türeyebilir. Þu þekilde bir kullaným yanlýþtýr.
+
+<?php
+
+final class a {
+
+}
+
+class b extends a {
+
+}
+
+$oop = new b ();
+
+?>
+
+@author Emrullah Tanýma Sayfa 15
+
+Burada a sýnýfýmýzý final olarak tanýmladýðýmýz için b sýnýfýmýzý da a sýnýfýndan
+türettiðimiz için hata alýrýz. Bu kodun doðru olan þekli ise þöyle olmalýdýr.
+
+<?php
+
+class a {
+
+}
+
+final class b extends a {
+
+}
+
+$oop = new b ();
+
+?>
+
+Oop mimarisinde gizlilik kavramlarý bundan ibarettir arkadaþlar. Bu konuda neler
+yaptýðýmýzý, öðrendiðimiz yeni komutlarýn ne iþe yaradýðýnýn kýsa bir özet geçelim.
+
+public : Her yerden eriþilebilir.
+
+private : Yalnýzca sýnýf içerisinden eriþilebilir.
+
+protected : Sýnýf içerisinden ve türetilen sýnýflardan eriþilebilir.
+
+static : Bir sýnýfýn yalnýzca bir metodunu kullanacaksak static tanýmlamalýyýz.
+
+final : Baþka bir sýnýf tarafýndan türetilemez. Koruma amaçlý kullanýlýr. Sýnýflarýn
+baþýnda tanýmlanýr.
+
+$this : Sýnýf içerisinde ki herhangi bir metoda eriþmek için kullanýlýr.
+
+parent:: : Türetilen sýnýf içerisindeki metotlara eriþmek için kullanýlýr.
+
+self:: : $this komutunun php5’deki halidir. $this yerine self kullanýlmasý önerilir.
+
+sinifadi::metod() : Bir sýnýfý komple çaðýrmadan sadece istenen sabit metodun
+çaðrýlmasýný saðlar.
+
+sinifadi::arguman : Bir sýnýfý komple çaðýrmadan sadece istenen sabit argümanýn
+çaðrýlmasýný saðlar.
+
+@author Emrullah Tanýma Sayfa 16
+
+self::$sabit : static olarak tanýmlanan bir objenin çaðrýlmasýný saðlar.
+Unutmamamýz gereken static olarak tanýmlanan deðeri çaðýrýrken önüne $ iþareti
+koymamýz gerektiði.
+
+extends : Bir sýnýfý baþka bir sýnýftan türetmek istediðimiz zaman kullanýlýr.
+
+@author Emrullah Tanýma Sayfa 17
+
+3. Sihirbaz Metotlar
+
+Sihirbaz metot: sýnýf ve olay çevresinde çalýþan PHP dili ile ta nýmlý olarak gelen
+metotlardýr.
+
+Sihirbaz metotlarýn sadece sýnýf içerisinde kullanýldýðý gibi yanlýþ bir bilgi oluþmasýn
+kesinlikle. Sýnýf dýþýnda da bazý sihirbaz metotlarý kullanabilmek mümkündür.
+
+Bazý sihirbaz metotlarýn diðer metotlara naz aran geliþtiriciler tarafýndan çok fazla
+kullanýldýðýný söylemek doðru deðil ancak bazý gerekli durumlarda kesinlikle
+kullanýlmasý kanaatindeyim. PHP 5 ile gelen toplam 15 adet sihirbaz metot
+bulunmaktadýr. PHP 7 de de bir deðiþiklik þu an söz konusu deðil.
+
+Sihirbaz metotlarýn önünde __ iþlevi bulunur ve sihirbaz olmayan metotlarýn önüne
+__ iþlevi koyulmasý PHP tarafýndan önerilmez. Ýleride sorunlar çýkarabilir. B iz bu
+yazýmýzda 4 adet sihirbaz metodu inceleyeceðiz. Sihirbaz metotlarýn hepsi public
+olarak t anýmlanmak zorundadýr.
+***
+3.1. __construct()
+
+__construct() metodu bir sýnýf çaðrýldýðý anda çalýþan metodumuzdur. Bu
+metodumuzu giriþ bölümünde yapýcý metot olarak adlandýrmýþtýk. Basit bir örnek
+ile olayý netleþtirelim.
+
+<?php
+
+class OopDersleri {
+
+public function __construct () {
+
+echo "OopDersleri sýnýfý çalýþtý.";
+
+}
+
+}
+
+$oop = New OopDersleri();
+
+?>
+
+@author Emrullah Tanýma Sayfa 18
+
+Bu betiði çalýþtýrdýðýmýzda “OopDersleri sýnýfý çalýþtý” çýktýsýný verecektir.
+__construct() sihirbaz metodu nerelerde kullanýlýr? ne iþimize yarayacak? diye
+soracak olursanýz bu metodumuz genelde türediði sýnýfýn metotlarýna eriþmek, sýnýf
+kullanýlmadan önce yapýlmasý gereken temizleme vb. gibi iþlemler için kullanýlýr.
+
+3.2. __destruct()
+
+__destruct() metodu ise __construct() metodunun aksine sýnýf en son iþlemi
+yaptýðýnda yani sýnýf bittiðinde çalýþan metottur. Bu metodumuza da giriþ
+bölümünde yýkýcý metot demiþtik. Þimdi bir önceki sihirbaz metodumuz ve
+__destruct() metodumuzu kullanarak bir örnek yapalým.
+
+<?php
+
+class OopDersleri {
+
+public function __construct () {
+
+echo "OopDersleri sýnýfý çalýþtý.";
+
+}
+
+public function __destruct () {
+
+echo "OopDersleri sýnýfý bitti.";
+
+}
+
+}
+
+$oop = New OopDersleri();
+
+?>
+
+Bu betiði çalýþtýrdýðýmýzda ise “OopDersleri sýnýfý çalýþtý.OopDersleri sýnýfý bitti.”
+çýktýsýný verecektir.
+
+@author Emrullah Tanýma Sayfa 19
+
+3.3. __toString()
+
+Bu sihirbaz metodumuz sýnýf objesini direk ekrana bastýðýmýzda, obje deðeri yerine
+istediðimiz bir içeriðin veya argümanýn çýkmasýný saðlar. Bir objeyi direk ekrana
+basmak da nereden çýktý diyecek olursanýz eðer hemen kýsa bir örnekle önce onu
+açýklayalým.
+
+<?php
+
+class OopDersleri {
+
+}
+
+$oop = New OopDersleri();
+echo $oop;
+
+?>
+
+Burada echo $oop koduyla objeyi direk ekrana bastýk. Ancak bu kodumuz bize bir
+hata döndürdü. Þimdi basit bir örnekle _toString sihirbaz metodumuzun ne iþe
+yaradýðýna bir bakalým.
+
+<?php
+
+class OopDersleri {
+
+public $name = "OopDersleri Sýnýfý";
+
+public function __toString () {
+return $this->name;
+}
+
+}
+
+$oop = New OopDersleri();
+echo $oop;
+
+?>
+
+Bu betiðimiz bize “OopDersleri Sýnýfý” çýktýsýný verecektir. Bu metodumuzu da
+aslýnda sýnýfýn adýný ve sýnýfýn özelliklerini ekrana basmak için kullanýyoruz.
+
+@author Emrullah Tanýma Sayfa 20
+
+3.4. __call()
+
+Bu sihirbaz metodumuz ise sýnýf içerisinde olmayan bir metodu veya argümaný
+çaðýrdýðýmýz zaman çalýþan metodumuzdur. Genellikle hata metni oluþturmak için
+kullanýlýr. __call sihirbaz metodu diðerlerinden farklý olarak iki adet parametre alýr.
+
+<?php
+
+class OopDersleri {
+
+public function __call ($name, $attr) {
+echo $name. " adlý metot bulunamadý.";
+}
+
+}
+
+$oop = New OopDersleri();
+$oop->yaz();
+
+?>
+
+Bu betiðimiz bize çýktý olarak “yaz adlý metot bulunamadý.” çýktýsýný verecektir. Eðer
+burada __call sihirbaz metodunu kullanmamýþ olsaydýk sýnýf içerisinde olmayan bir
+metodu çaðýrdýðýmýz için PHP derleyicimiz hata verecekti.
+
+Konunun baþýnda bahsettiðim 15 adet sihirbaz metodu incelemek
+için http://php.net/manual/tr/language.oop5.magic.php adresini kullanabilirsiniz.
+
+3.5. Örnek Sýnýf
+
+Bu konumuzda ise þimdiye kadar olan tüm konularýn genel bir özetini kapsayacak
+örnek bir sýnýf oluþturacaðýz ve nesne tabanlý programlama yapýsýný daha iyi
+anlayacaðýz.
+
+Örnek sýnýfýmýz oturum iþlemlerini temel düzeyde yapacaðýmýz bir session sýnýfý
+olacak. Bu sýnýfýmýzda oturum baþlatma sonlandýrma gibi iþlemlerimizi yapacaðýz.
+
+Ne yapacaðýmýz ile ilgili kafanýzda bir þeyler canlandý sanýrým. Dilerseniz hemen
+baþlayalým. Ýlk olarak class komutuyla yeni bir sýnýf oluþturalým. Ancak bu sýnýfýmýzý
+final komutuyla tanýmlayalým.
+
+@author Emrullah Tanýma Sayfa 21
+
+Gizlilik konumuzdan hatýrlayacaðýnýz üzere final komutunu koruma amaçlý ve baþka
+bir sýnýf tarafýndan türetilememesi için kullanýyorduk. Þimdi sýnýfýmýzý oluþturalým.
+
+<?php
+final class Session {
+
+}
+?>
+
+Sýnýfýmýzý oluþturduktan sonra oturumlarý baþlatacak olan metodumuzu yazalým. Bu
+metodumuz çok fazla bir þey yapmayacak þimdilik bizim için session_start() demesi
+yeterli. Bu metodumuza static olarak tanýmlayalým. Gizlilik konusunda static
+komutunu sadece argümanlarda kullanmýþtýk þimdi de metotlarda kullanalým zaten
+yazým olarak pek bir farký yok.
+
+<?php
+
+final class Session {
+
+public static function init () {
+session_start ();
+}
+
+}
+
+?>
+
+Bu metodumuzu static olarak tanýmlamamýzýn bir diðer sebebi de sýnýf dýþýndan
+eriþimi saðlamak. Þu an sýnýfýmýz oturumu baþlatan bir metoda sahip.
+
+Þimdi de oturumu sonlandýracak olan metodumuzu yazalým. Bu metodumuzu
+da static olarak tanýmlýyoruz.
+
+<?php
+
+final class Session {
+
+public static function init () {
+session_start ();
+}
+public static function logout () {
+session_destroy ();
+}
+
+}
+
+@author Emrullah Tanýma Sayfa 22
+
+?>
+
+Sihirbaz metotlar konumuzdan da bir þeyler yapalým ki bir faydasý olsun. Þimdide
+sýnýfýmýza sýnýfýn adýný ve özellikleri yazdýran __toString sihirbaz metodumuzu
+ekleyelim. Bunun için sýnýfýn adýný taþýyan name adýnda bir private deðiþken, sýnýfýn
+özelliklerini taþýyan properties adýnda bir public deðiþken oluþturalým.
+
+<?php
+
+final class Session {
+
+private $name = "Oop Dersleri Örnek Session Sýnýfý";
+public $properties = "Oturum baþlatma,kapatma vs.";
+
+public static function init () {
+session_start ();
+}
+public static function logout () {
+session_destroy ();
+}
+
+public function __toString () {
+echo $this->name." - ".$this->properties;
+}
+
+}
+
+?>
+
+Sýnýf içerisinde ki bir metot veya deðiþkene ulaþmak için $this komutunu
+kullanýyorduk. Burada unutmamamýz gereken þey ise bir metoda eriþirken metot
+isminin yanýna ( ) iþaretlerini koymamýz gerekiyordu.
+
+Artýk sýnýfýmýz oturum baþlatýp sonlandýrabiliyor. Þimdi ise oturumumuza deðer
+ekleyecek olan set metodumuzu ve bize oturumdan deðer döndürecek
+olan get metodumuzu yazalým.
+
+Oop mimarisinde set ve get metotlarý çok kullanýlýr. Yukarýda da söylediðim gibi bir
+sýnýf içerisinde ki bir argümana veya metoda deðer eklemek set ve sýnýf içerisinden
+her hangi bir deðer almak için ise get kullanýlýr. Daha doðrusu global olarak bu
+iþlemleri yapan metotlara get ve set adý verilir demek daha doðru olur. Bazý
+kaynaklarda getter ve setter metotlarý olarak da geçmektedir.
+
+@author Emrullah Tanýma Sayfa 23
+
+Þimdi ilk olarak set metodumuzu yazalým.
+
+<?php
+
+final class Session {
+
+private $name = "Oop Dersleri Örnek Session Sýnýfý";
+public $properties = "Oturum baþlatma,kapatma vs.";
+
+public static function init () {
+session_start ();
+}
+public static function logout () {
+session_destroy ();
+}
+
+public function __toString () {
+echo $this->name." - ".$this->properties;
+}
+
+// Set metodumuz
+public static function set ($key, $value) {
+$_SESSION [$key] = $value;
+}
+
+}
+
+?>
+
+Burada farklý olarak set metodumuz iki adet parametre almaktadýr. Burada ki
+parametreler fonksiyonlarda ki gibi çalýþmaktadýr. Mantýk olarak aynýdýr. $key
+parametremiz dizinin anahtarýný $value ise deðerini belirtir.
+
+Þimdi de get metodumuzu yazalým. Get metodumuz sadece bir parametre alacak
+ve bu parametre ile dizinin hangi elemanýnýn verisini almak istediðimizi
+metodumuza söylemiþ olacaðýz.
+
+<?php
+
+final class Session {
+
+private $name = "Oop Dersleri Örnek Session Sýnýfý";
+public $properties = "Oturum baþlatma,kapatma vs.";
+
+public static function init () {
+session_start ();
+}
+public static function logout () {
+
+@author Emrullah Tanýma Sayfa 24
+
+session_destroy ();
+}
+
+public function __toString () {
+echo $this->name." - ".$this->properties;
+}
+
+// Set metodumuz
+public static function set ($key, $value) {
+$_SESSION [$key] = $value;
+}
+
+// Get metodumuz
+public static function get ($key) {
+if (isset ($_SESSION [$key])) {
+return $_SESSION [$key];
+} else {
+return false;
+}
+}
+}
+?>
+
+Artýk sýnýfýmýz kullanýma hazýr. Yukarýdaki kodlarýmýzý class.session.php olarak ana
+dizinimize kaydediyoruz. Þimdi index.php yada siz nasýl dilerseniz baþka bir dosya
+oluþturalým ve içine yazmýþ olduðumuz sýnýfýmýzý include edelim.
+
+Ýlk olarak sýnýfýmýzý baþlatmadan önceki konularýmýzda bahsettiðimiz gibi sýnýf
+dýþýndan init metoduyla oturumu baþlatýp set metodumuzla içine bir þeyler
+ekleyelim. Daha sonra eklediðimiz deðeri ekrana basalým ve logout metodumuzla
+oturumu kapatalým.
+
+<?php
+
+include ('class.session.php');
+
+Session:: init ();
+
+Session:: set ('login', true);
+
+echo Session:: get ('login');
+
+Session:: logout ();
+
+?>
+
+@author Emrullah Tanýma Sayfa 25
+
+Bu betiði çalýþtýrdýðýmýzda ekrana “1” çýktýsýný verecektir. Sýnýf dýþýndan bir metoda
+eriþmek istediðimiz zaman Sinifadi::metot() þeklinde eriþiyorduk. Sýnýfýmýzýn yaptýðý
+iþlemi normal þartlarda bu þekilde yapýyoruz.
+
+<?php
+
+session_start ();
+
+$_SESSION ['login'] = true;
+
+echo $_SESSION ['login'];
+
+session_destroy ();
+
+?>
+
+Þeklinde de yine “1” çýktýsýný verecektir. Þimdi de sýnýfý baþlatýp ayný iþlemi yapalým.
+
+<?php
+
+include ('class.session.php');
+
+$session = New Session ();
+
+$session->init ();
+
+$session->set ('login', true);
+
+echo $session->get ('login');
+
+$session->logout ();
+
+?>
+
+Ekran çýktýsý: 1
+
+@author Emrullah Tanýma Sayfa 26
+
+4. Autoload
+
+Yukarýda ki örneðimizde bir sýnýf oluþturup bu sýnýfýmýzý sayfaya include etmiþtik.
+Peki 50-60 tane sýnýfýmýz olmuþ olsaydý her sýnýf iç in tek tek include mi edecektik?
+Tabi ki de hayýr. Zaten bunu elle yapmýþ olsaydýk vay halimize. Peki, bunun için ne
+yapabiliriz. PHP‘nin bize sunmuþ olduðu __autoload fonksiyonunu kullanarak bu
+soruna kökten çözüm getirebiliriz.
+
+Kod standartlarýnda genel olarak sýnýflar ayrý bir klasörde tutulur. Örneðin classes,
+class, lib ve library gibi. Ben genelde library adýnda bir klasör oluþturup onun iç inde
+tutuyorum.
+
+Lafý fazla uzatmadan konumuza dönelim. Library adýnda bir klasörünüz var ve siz
+sýnýflarýnýzý bu klasörde tutuyorsunuz diyelim. 40-50 tane sýnýf yazdýnýz ve tek tek
+yüklemek istemiyors unuz. O halde sizi þöyle alayým.
+
+<?php
+
+function __autoload ($class) {
+
+$file = 'library/'.$class.'.php';
+
+if (file_exists ($file)) {
+
+require_once ($file);
+
+} else {
+
+echo "sýnýf bulunamadý";
+
+}
+
+}
+
+?>
+
+Þeklinde kullanabilirsiniz. Burada klasör adresinize dikkat etmelisiniz.
+
+Peki 50-60 tane dosyayý her seferinde yüklemek sistemi yavaþlatmaz mý?
+
+Tabi ki yavaþlatýr. __autoload fonksiyonu yeni bir sýnýf baþlatýldýðý zaman çalýþýr.
+
+@author Emrullah Tanýma Sayfa 27
+
+Þöyle ki New Session(); diyerek yeni bir sýnýf baþlattýðýnýzda yalnýzca libra ry
+klasörünüzde bulunan session.php dosyasý yüklenmiþ olur. Yani her seferinde tüm
+dosyalarý yüklemez. Böylelikle hem performans saðlamýþ oluruz hem de yeni bir
+sýnýf yazdýðýmýzda elle eklemekten kurtulmuþ oluruz.
+
+Burada dikkat etmemiz gereken bir diðer konuda sýnýf adýyla dosya adýnýn ayný
+olmasý. Mesela oop.php adýnda bir dosya oluþturduk içine de class OopDersleri
+diyerek OopDersleri adýnda bir sýnýf oluþturduk diyelim. New OopDersleri(); diye
+sýnýfýmýzý baþlattýðýmýzda __autoload fonksiyonu çalýþacak ve library klasörü altýnda
+OopDersleri.php dosyasýný arayacaktýr. Öyle bir dosya olmadýðý için de doðal olarak
+else kýsmýnda yazdýðýmýz hatayý verecektir. Windows (:p) iþletim sisteminde
+herhangi bir sorun yaþamazsýnýz ancak kodlarýnýzý sunucuya attýðýnýzda hata
+alýrsýnýz. B u kýsmý aklýmýzdan çýkarmýyoruz.
+
+Peki bir sýnýfý baþlattýk ancak sadece belirli yerlerde kullanýyoruz. Mesela kategoriler
+sýnýfýmýzý sistemimiz baþlarken otomatik olarak baþlattýk. Yazýlar kýsmýnda iþlem
+yapýyoruz diyelim. Yazýlar kýsmýnda çalýþýrken kategoriler sýnýfýna ihtiyacýmýz yok.
+
+PHP‘de kullanýlmayan sýnýflarýn otomatik olarak yüklenmesinin önüne geçmek
+için spl_autoload_register fonksiyonu kullanýlýr. Frameworklerde ve OOP
+uygulamalarýnda genel olarak bu fonksiyonumuz autoloader’larýn altýna eklenir. Biz
+de standartlara uyarak kodumuzu þu þekilde deðiþtiriyoruz.
+
+<?php
+
+function __autoload ($class) {
+
+$file = 'library/'.$class.'.php';
+
+if (file_exists ($file)) {
+
+require_once ($file);
+
+} else {
+
+echo "sýnýf bulunamadý";
+
+}
+
+}
+spl_autoload_register ('__autoload');
+
+?>
+
+@author Emrullah Tanýma Sayfa 28
+
+5. Overloading
+
+Overloading: ayný isimde birden çok metot veya argüman tanýmlama özelliðidir.
+Sýnýf içerisinde olmayan bir deðiþkene deðer atamak da diyebiliriz. PHP‘nin
+overloading konusu diðer nesne tabanlý programlama dillerinden çok daha farklý
+bir yapýya sahiptir.
+
+“Sýnýf içerisinde olmayan bir deðiþkene deðer atamak” derken neyi kastettiðimi
+basit bir örnekle anlatayým.
+
+<?php
+
+class overloading {
+
+}
+
+$overloading = new overloading ();
+$overloading->deneme = "php";
+
+echo $overloading->deneme;
+
+?>
+
+Bu kodu çalýþtýrdýðýnýzda ekrana “php” çýktýsýný verecektir. Burada sizin de dikkatinizi
+çektiði gibi sýnýf içerisinde deneme adýnda bir deðiþken tanýmlamadýðýmýz halde bu
+deðiþkene deðer atayabiliyoruz. Overloading’i taným olarak böyle de anlatabiliriz.
+Ancak bu þekilde bir kullaným doðru deðildir.
+
+Hatalarý minimize etmek ve ileride oluþabilecek sorunlarýn önüne geçmek için
+overloading konusunda PH P’nin bize sunmuþ olduðu bazý metotlar bulunmaktadýr.
+Bu metotlar: __get __set __isset __unset __call ve __callStatic metotlarýdýr. Bu
+metotlarýn bazýlarý parametre aldýðý gibi bazýlarý da void olarak yani parametresiz
+olarak çalýþabilir. Burada ki bazý metotlar, size sihirbaz metotlar konumuzdan
+tanýdýk gelebilir. Hatta bu metotlar da sihirbaz metotlardýr.
+
+Overloading konusunda kullanacaðýmýz metotlarý önce kýsa kýsa açýklayacak olursak
+eðer:
+
+__get: Sýnýf içerisinde olmayan bir deðiþkenden veri almaya çalýþtýðýmýzda
+tetiklenen metot.
+
+@author Emrullah Tanýma Sayfa 29
+
+__set: Sýnýf içerisinde olmayan bir deðiþkene veri atamaya çalýþtýðýmýzda tetiklenen
+metot.
+
+__isset: Sýnýf içerisinde olmayan bir deðiþken veya metot için isset ve empty
+kontrolleri yapýldýðýnda tetiklenen metot.
+
+__unset: Sýnýf içerisinde olmayan bir deðiþken için unset komutu çaðrýldýðýnda
+tetiklenir.
+
+__call: Sihirbaz metotlar konumuzdan hatýrlayacaðýnýz üzere sýnýf içerisinde
+olmayan bir metot çaðrýldýðýnda tetiklenen metot.
+
+__callStatic: Bir üstte ki metodumuzla ayný iþi yapar ancak static olarak
+çalýþmaktadýr.
+
+Bu metotlarýmýzý kullanabilmek için hepsinin public olarak tanýmlanmasý
+gerekir. __callStatic hariç tabi ki. Açýkçasý overloading konusu sürekli
+kullanabileceðimiz bir özellik deðil. Ancak çok karýþýk parametrelerin gelm esi
+gereken sýnýflarda olmazsa olmaz bir özellik ve kesinlikle kullanýlmasý gerekir. Þimdi
+basit bir örnekle overloading kullanýmýný daha iyi anlayalým.
+
+<?php
+
+class Overloading {
+
+// Overloading yapýlacak deðiþken
+private $data = [];
+
+// Overloading set edecek olan metodumuz
+public function __set ($key, $val) {
+$this->data[$key] = $val;
+}
+
+// Overloading get edecek metodumuz
+public function __get ($key) {
+
+if (array_key_exists ($key, $this->data)) {
+return $this->data[$key];
+}
+
+}
+
+// Overloading isset kontrolu yapacak metodumuz
+public function __isset ($key) {
+return isset ($this->data[$key]);
+}
+
+@author Emrullah Tanýma Sayfa 30
+
+// Overloading unset edecek metodumuz
+public function __unset ($key) {
+unset ($this->data[$key]);
+}
+
+// Overloading call metodumuz
+public function __call ($key, $detail) {
+
+echo $key." adýnda metodun deðeri:\n";
+print_r ($detail);
+
+}
+
+// Overloading callStatic metodumuz
+public static function __callStatic ($key, $detail) {
+
+echo $key." adýnda metodun deðeri:\n";
+print_r ($detail);
+
+}
+
+}
+
+$overloading = New Overloading ();
+$overloading->dil = "php";
+$overloading->konu = "overloading";
+
+echo $overloading->dil;
+echo "<br/>";
+echo $overloading->konu;
+echo "<br/>";
+
+$overloading->olmayanmetot ();
+echo "<br/>";
+unset ($overloading->dil);
+$overloading->deneme = array (1,2,3, 4,5);
+print_r ($overloading->deneme);
+
+?>
+
+Þimdi ne yaptýðýmýza tekrar bir bakalým. Sýnýf içerisinde olmayan dil ve konu
+deðiþkenlerine deðer atarken __set metodu tetikleniyo r. echo $overloading->dil;
+dediðimiz zaman da __get metodu tetikleniyor ve çaðýrdýðýmýz deðiþkeni geri
+döndürüyor. $overloading->olmayanmetot() dediðimizde sýnýf içerisinde ki __call
+metodu tetikleniyor. Son olarak da unset($overloading->dil) dediðimiz de i se
+__unset metodu tetikleniyor.
+
+@author Emrullah Tanýma Sayfa 31
+
+6. Soyut Sýnýflar
+
+Soyut sýnýf; içinde en az bir soyut metot bulunan ve türetilen sýnýflarda bu metodun
+bulunmasý zorunlu olan sýnýflardýr. Burada ki soyut kavramý bu metot larýn somut
+iþlemleri içermemeleri bu somut iþlemleri türetilen sýnýflara býrakmasýdýr. Daha
+kesin bir taným yapýlmak gerekirse soyut sýnýflar sadece tanýmlanýp býrakýlýr
+içerisinde herhangi bir iþlem yapýlmaz.
+
+OOP mimarisinde soyut sýnýflar sistemati k bir sistem kurmak ve hatalarý minimize
+etmek amacýyla kullanýlýr. Component(bileþen) mantýðýnda olmazsa olmaz
+yapýlardan biridir. Soyut sýnýflar normal sýnýf tanýmlamalarýndan farklý olarak
+tanýmlanýr ve New komutuyla çaðýrýlamazlar. Örnek vermek gerekirse:
+
+<?php
+
+abstract class Soyut {
+
+}
+
+?>
+
+Soyut sýnýflar bu þekilde tanýmlanmaktadýr. Bu noktaya lütfen dikkat edin. Soyut
+sýnýflarý türeyen sýnýflar üzerine çekilen bir katman olarak düþünebilirsiniz. Baþka bir
+deyiþle türeyen sýnýflarda soyut metotl ar tanýmlanmak zorundadýr. Kýsa bir örnek
+verelim.
+
+Diyelim ki bir mvc yapýnýz var. Controller model ve view adýnda çekirdek iþlemler i
+yapan sýnýflarýnýz var. Ve tüm controller dosyalarýný bu çekirdekt e yer alan
+controller sýnýfýndan, tüm model dosyalarýný da yine çekirdekte ki model sýnýfýndan
+türetiyorsunuz. Her þey harika olmasý gereken de budur zaten. Sistem üzerinde mvc
+çalýþma mantýðý temel olarak controller/metot/parametre olarak çalýþýyor diyelim.
+Ve controller dosyasý çaðrýldýðý zaman bir metot belirt ilmezse genel de index yada
+home adýnda bir metot oluþturup bu metodu varsayýlan olarak çaðýrýrýz.
+
+Ýþte tam bu noktada ana controller dosyasý içinde varsayýlan olarak çaðýrýlan
+metodun ismini abstract olarak tanýmlayarak türetilen sýnýflarda bu metodun
+olm asýný zorunlu hale getirebiliriz. Böylece daha sistematik bir yapý oluþturup, olasý
+hatalarýn önüne geçebilir ve doðru olaný yapmýþ oluruz. Kafanýzda bir þeyler
+canlandýysa konumuza tekrar dönüþ yapalým.
+
+@author Emrullah Tanýma Sayfa 32
+
+Soyut sýnýflar içinde soyut bir metot tanýmlamak içi n metodun
+önüne abstract komutunu koymamýz yeterlidir. Burada ince bir n oktaya da
+deðinelim. Soyut metotlarýn public yada protected olarak tanýmlanmasý gerekir.
+Gizlilik konusunda yer alan private, static gibi metot tipleriyle soyut metotlar
+tanýmlanamaz. Bir diðer husus ise soyut sýnýflar sadece tanýmlanýp býrakýlýr. Örnek:
+
+<?php
+
+abstract class Controller {
+
+// Yanlýþ soyut metod
+
+abstract public function Metod () { }
+
+// Doðru soyut metod
+
+abstract public function Metod ();
+
+}
+
+?>
+
+Aslýna bakarsanýz soyut sýnýf denilmesinin sebebi de tam olarak budur. Þimdi
+yukarýda ki kullaným örneðinde bahsettiðimiz mvc mimarisinde yer alan soyut sýnýf
+yapýsýnýn bir örneðini yaparak konuyu daha da netleþtirelim.
+
+<?php
+
+abstract class Controller {
+
+abstract public function index();
+
+}
+
+class MainController extends Controller {
+
+public function index() {
+
+// Ýþlemler
+
+}
+
+}
+
+new MainController ();
+
+?>
+
+@author Emrullah Tanýma Sayfa 33
+
+Eðer ki MainController sýnýfý içerisinde index adýnda bir metot tanýmlamasaydýk
+PHP derleyicimiz bize “Abstract function Controller::index() cannot contain
+body…” hatasý verecekti.
+
+Peki, þöyle bir sýnýfýmýz olduðunu düþünelim.
+
+<?php
+
+abstract class Controller () {
+
+abstract public function index();
+
+public function Load () {
+
+return true;
+
+}
+
+}
+
+class MainController extends Controller {
+
+public function index() { }
+
+}
+
+new MainController ();
+
+?>
+
+Controller soyut s ýnýfýmýz içerinde iki adet metot bulunuyor. Bu metotlardan index
+metodunu türettiðimiz MainController sýnýfý içerisinde tanýmladýk.
+
+Diðer metodumuzu ise tanýmlamadýk sizce çalýþýr mý?
+
+Evet çalýþýr. Hani soyut sýnýflar içerisinde ki metotlar türetilen sýnýflarda kullanýlmak
+zorundaydý? Burada bir ayrýntýya daha yer verelim. Soyut sýnýflar içer isinde yalnýzca
+soyut olarak tanýmlanan metotlarýn türetilen sýnýflarda tanýmlanmasý zorunludur.
+Yukarýda index metodunu abstract olarak tanýmladýðýmýz için MainController sýnýfý
+içerisinde bu metodu tanýmlamak zorundayýz. Eðer Load metodunu abstract olarak
+tanýmlamýþ olsaydýk onu da kullanmak zorundaydýk.
+
+@author Emrullah Tanýma Sayfa 34
+
+7. Nesne Arayüzleri
+
+7.1. Giriþ
+
+Nesne arayüzleri: Bir sýnýf içerisinde zorunlu bir þekilde kullanýlmasýný istediðimiz
+metot ve argümanlarý barýndýran sýnýflara denir.
+
+Nesne arayüzleri diðer sýnýf tanýmlamalarýndan farklý olarak interface anahtar
+sözcüðü ile tanýmlanýr. Örneðin:
+
+<?php
+
+interface arayuz {
+
+}
+
+?>
+
+Aslýna bakarsanýz nesne arayüzleri ve soyut sýnýflar birbirine çok benzer hatta çok
+karýþtýrýlýr. Nesne arayüzlerini soyut sýnýflardan farklý kýlan þey nesne arayüzleri
+içerisinde yalnýzca tanýmlama metotlarý kullanýlýr ve tüm metotlar public olarak
+tanýmlanmak zorundadýr. Interface’ler New komutuyla çaðýrýlamazlar.
+
+Yalnýzca geniþletilerek kullanýlabilir. Burada bir diðer fark ise nesne arayüzleri
+extends anahtar kelimesiyle deðil implements anahtar kelimesiyle kullanýlýr. Yine
+burada bir fark daha var ki oda þu eðer bir interface baþka bir interface’den
+türeyecekse extends komutu normal bir sýnýf bir interface’den
+türeyecekse implements komutu kullanýlýr. Kafanýzýn çok karýþtýðýnýn farkýndayým ve
+hemen bir örnek ile bu karýþýklýðý giderelim.
+
+<?php
+
+interface Arayuz {
+
+}
+
+interface BaskaBirArayuz extends Arayuz {
+
+}
+
+class Arayuzler implements BaskaBirArayuz {
+
+}
+
+@author Emrullah Tanýma Sayfa 35
+
+?>
+
+Interface’ler New komutuyla çaðýrýlamazlar dedik ve ona da çok kýsa bir örnek
+verelim.
+
+<?php
+
+interface Arayuz {
+
+}
+
+new Arayuz();
+
+?>
+
+Bu þekilde bir kullaným hata oluþturur.
+
+7.2. Nesne arayüzleri neden kullanýlýr ?
+
+Interface’lerin Türkçe manasýyla arayüz anlamýna gelmesi interface’lerin genellikle
+tema motorlarýnda yada tema yapýmýnda kullanýldýðý gibi bir algý oluþturmuþtur
+ancak olay burada biraz daha farklý. Interface’ler tabii ki tema yapýmýnda da
+kullanýlabilir ancak nesne arayüzlerini bununla sýnýrlamak doðru deðildir.
+
+Nesne arayüzleri genellikle modelleme yapýlmak istenildiðinde ve birden çok
+yazýlýmcýnýn geliþtirdiði projelerde standart bir yapý ortaya konulmak istenildiðinde
+kullanýlýr. Eðer bir sýnýf bir interface’den türetilmiþ ise türetilen interface’ye uygun
+kod yazmaya bizi zorlar böylelikle standart bir yapý oluþturulur. Bu kadar ön bilgi ve
+somut örnekten sonra basit bir interface yazalým.
+
+<?php
+
+interface Arayuz {
+
+const Qwerty = 1;
+
+public function set ($name);
+
+}
+
+@author Emrullah Tanýma Sayfa 36
+
+interface BaskaArayuz extends Arayuz {
+public function get ();
+}
+
+class Veri implements BaskaArayuz {
+
+private $name;
+
+public function set ($name) {
+$this->name = $name;
+}
+
+public function get () {
+return $this->name;
+}
+
+}
+
+$interface = new Veri ();
+$interface->set ('Php oop dersleri');
+echo $interface->get ();
+
+?>
+Arayuz adýnda bir interface oluþturduk ve içerisinde set metodumuzu birde Qwerty
+adýnda bir sabit tanýmladýk. Daha sonra BaskaArayuz adýnda bir interface daha
+oluþturduk ve bu interface’yi Arayuz ile geniþlettik ve get metodumuzu ekledik.
+Daha sonra Veri adýnda bir sýnýf oluþturup bu sýnýfýmýzý
+da “implements” komutuyla BaskaArayuz in terface’sinden türettik ve içine get,set
+metodum uzu ve name argümanýný ekledik.
+
+Eðer Veri sýnýfý içerisinde get ve set metotlarýmýzý tanýmlamasaydýk týpký soyut
+sýnýflar konumuzda olduðu gibi PHP derleyicimiz hata verecekti.
+
+Peki, Arayuz içinde ki sabit deðiþken ne olacak ?
+
+Aslýnda onu oraya öylesine koymadým ? Burada bir istisnaya deðinmek
+istiyorum. Nesne arayüzleri içerisinde yalnýzca const komutuyla oluþturulan
+deðerlerin türetilen sýnýf içerisinde kullanýlmasý zorunlu deðildir. Son olarak ise
+$interface deðiþkenine Veri sýnýfýný atadýk ve set ve get metotlarýný kullandýk.
+
+Temel olarak nesne arayüzlerinin çalýþma mantýðý bu þekildedir. Nesne arayüzlerini
+ilk öðrendiðim zamanlar bana çok gereksiz gelmiþti aslýnda ancak zamanla
+kullandýkça öðrenmeye çalýþtýkça nesne arayüzlerini daha iyi kavramýþ oldum ve
+gerçekten önemli olduðunu anladým. Siz benim gibi yapmayýn ?
+
+@author Emrullah Tanýma Sayfa 37
+
+8. Nesne Klonlama
+
+Nesne klonlama PHP 5 ile birlikte gelmiþtir ve pek fazla bir deðiþime uðramamýþtýr.
+En basit manasýyla bir sýnýfý yeniden tanýmlamadan kopyalamamýzý saðlar.
+
+Bir sýnýf çaðýrdýðýmýzda sýnýfýn RAM’de tutulduðunu daha önceki konularýmýzda
+söylemiþtik. Bir sýnýfý defalarca çaðýrmak sistem üzerinde gereksiz bir yük oluþturur
+ve hantal bir sisteme sahip olursunuz. Maliyet artar. En önemlisi canýnýz sýkýlýr.
+Nesne klonlama tam olarak bunun için vardýr. PHP topluluðu canýmýz sýkýlmasýn
+maliyetimiz artmasýn diye bu olayý da düþünmüþler sað olsunlar ? Þimdi çok basit
+bir örnekle nesne klonlama konumuzu netleþtirelim.
+
+<?php
+
+class Oop {
+
+public function hi () {
+echo "Hello World";
+}
+
+}
+
+$sinif = new Oop ();
+$kopya = clone $sinif;
+
+?>
+
+Bu örneðimiz ile konuyu çok güzel özetleyebiliriz. Klasik olarak ne yaptýðýmýza þöyle
+bir bakalým. Oop adýnda bir sýnýf oluþturduk hi adýnda bir metot ekledik. Daha
+sonra $sinif deðiþkenine Oop sýnýfýný atadýk. Ardýndan $kopya
+deðiþkenine clone $sinif diye rek Oop sýnýfýmýzý bu deðiþkene kopyalamýþ olduk.
+
+Buradan anlaþýldýðý üzere bir sýnýfý kopyalamak için clone komutunu kullanýyoruz.
+Burada þunu belirtmekte fayda var. $kopya = $sinif; þeklinde bir kullaným ile yukarý
+da yaptýðýmýz olay kesinlikle ayný þey deðildir.
+
+Eþittir (=) iþareti kullanýlarak obje kopyalamak mümkün deðildir ! Bu en az bilinen
+ve en çok yapýlan hatalardan biridir. Eðer clone komutu yerine bu hatayý yaparsanýz
+proje illa ki bir yerde patlar yada sýnýflar doðru dürüst çalýþmayabilir. Bu hatanýn en
+kötü yaný d a herhangi bir hata oluþturmamasýdýr. Bu yüzden de hatanýn nereden
+kaynaklandýðýný bulmak maalesef zaman alabilir.
+
+@author Emrullah Tanýma Sayfa 38
+
+9. Sonsöz
+
+Nesne tabanlý programlama son yýllarda çok hýzlý þekilde geliþen bir teknoloji. Hal
+böyle olunca yalnýzca PHP deðil hemen hemen tüm dillerde artýk projeler OOP
+mimarisiyle geliþtiriliyor. Mevcut projeler bile OOP mimarisine dönüþtürülüyor.
+
+PHP 7 ile birlikte obje yapýsý daha da geliþtirildi ve artýk PHP hemen hemen tüm
+ihtiyaçlarýmýzý rahatlýkla karþýlýyor.
+
+Çoðu iþ ilanlarýnda artýk OOP bilen yazýlýmcý arandýðýný da görürsünüz. Uzun lafýn
+kýsasý projelerimizde OOP mimari sini kullanmak son derece önemlidir. Zaten
+mantýðýný tamamen kavrayýp el alýþkanlýðýnýz oluþtuðunda ne demek istediðimi
+gayet iyi anlayacaksýnýz ve klasik sistem sizin için o andan sonra bitmiþ olacak.
+Zaten oturup mantýklý düþündüðünüzde kullanmamanýz için hiçbir neden yok.
+
+Bu kitapta yada blog üzerinde ki konularý özümseyip kavradýðýnýzda teorik olarak
+OOP mantýðýný kavrayacaðýnýzý ve projelerinizi OOP mimarisiyle yazabileceðinize
+inanýyorum. Umarým bu kitap bir nebze de olsa faydalý olmuþtur ve size bir þeyler
+katabilmiþimdir. Görüþmek üzere kendinize iyi bakýn ?
+
